@@ -29,6 +29,12 @@ app.use(express.json());
 app.use(cookieParser())
 app.use(cors({origin: "https://justclickjobs.netlify.app", credentials: true}))
 
+app.get("/", async (req, res) => {
+  res.status(200).send({
+    message: "Hello from JustClick"
+  })
+})
+
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/gigs", gigRoute);
